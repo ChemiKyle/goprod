@@ -8,6 +8,11 @@
 			"name": "Alvaro Andres Alvarez Peralta",
 			"email": "alvaro1@stanford.edu",
 			"institution": "Stanford University"
+		},
+		{
+			"name": "Kyle Chesney",
+			"email": "kyle.chesney@ufl.edu",
+			"institution": "University of Florida - CTSI"
 		}
 	],
 
@@ -57,9 +62,27 @@
 				{ "value": "es", "name": "Español" }
 
 			]
+		},
+		{
+			"key": "info-what-netx-body",
+			"name": "Info What Netx Body",
+			"required": false,
+			"type": "rich-text"
+		},
+		{
+			"key": "info-citation-body",
+			"name": "Info Citation Body",
+			"required": false,
+			"type": "rich-text"
+		},
+		{
+			"key": "main-text",
+			"name": "Main Text",
+			"required": false,
+			"type": "rich-text"
 		}
 	],
 
-	
+
 	"project-settings": []
 }
