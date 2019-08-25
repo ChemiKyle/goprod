@@ -64,8 +64,8 @@
 			]
 		},
 		{
-			"key": "info-what-netx-body",
-			"name": "Info What Netx Body",
+			"key": "info-what-next-body",
+			"name": "Info What Next Body",
 			"required": false,
 			"type": "rich-text"
 		},
