@@ -14,9 +14,23 @@ namespace Stanford\GoProd;
  * @return mixed
  */
 
-//TODO: the names of the columns in the view files and the close button are hard coded.. create lang variables them.
-function lang($phrase){
-        static $lang = array(
+
+class message extends GoProd {
+    public static $langArray;
+
+    public function __construct() {
+        // Check for user set lang variables, default to Stanford values
+        if (!$INFO_WHAT_NETX_BODY = $this->getSystemSetting('info-what-netx-body')) {
+            $INFO_WHAT_NETX_BODY = '  Your project will be reviewed by SCCI before being moved into Production. This process typically takes 1-2 business days.  Can\'t wait? Click <a href="https://medwiki.stanford.edu/x/SRMzAw"><u>HERE</u></a>.';
+        }
+        if (!$INFO_CITATION_BODY = $this->getSystemSetting('info-citation-body')) {
+            $INFO_CITATION_BODY = ' REDCap at Stanford is supported by Research IT. All research resulting from the use of REDCap must cite the grants that make this service available - details, including biolerplate language, are located <a href="https://medwiki.stanford.edu/x/AAJPB"><u>HERE</u></a>.';
+        }
+        if (!$MAIN_TEXT = $this->getSystemSetting('main-text')) {
+            $MAIN_TEXT = 'If the thought of losing the data you have entered into your REDCap project sounds painful, you should be in production mode. Production mode helps protect your data from accidental mistakes. This plugin will allow you to verify if your project is ready to move to production mode or if you first need to fix something.  <a href="https://medwiki.stanford.edu/x/SRMzAw" > <u>When do I move to Production Mode?</u></a>';
+        }
+
+        self::$langArray = array(
             'OTHER_OR_UNKNOWN_TITLE' => 'Unrecommended coding for "other" and/or "unknown" values in drop-down lists, radio-buttons or check-boxes.',
             'OTHER_OR_UNKNOWN_BODY' =>'It is common to include an "other" or "unknown" option at the end of a dropdown list. It is encouraged to use different coding for these answers (in general other=99 and unknown=98). There are two reasons for this: <p>1. You can easily add additional choices without needing to recode your values; and 2. when you are using statistical software it is apparent which values correspond to special codes. For example, the following is NOT recommended: </p><small><ul class="list-group" style=" padding-left: 50px; width: 215px; "><li class="list-group-item">1, Dr. Jones</li><li class="list-group-item">2, Dr. Parker </li><li class="list-group-item">3, Dr. Smith</li><li class="list-group-item">4, Other </li></ul></small><p>Say you have collected data for 100 records and you now want to add Dr. Rose to the list. A common mistake is the following: </p><small><ul class="list-group" style=" padding-left: 50px; width: 215px; "><li class="list-group-item">1, Dr. Jones</li><li class="list-group-item">2, Dr. Parker </li><li class="list-group-item">3, Dr. Smith</li><li class="list-group-item">4, Dr. Rose <br><strong>(DON\'T DO IT THIS WAY)</strong></li><li class="list-group-item">5, Other</li></ul></small><p>If, before the change, you had 20 records as \'other\' with a value of 4, they would all instantly be transferred to Dr. Rose. This usually isn\'t what is intended. A better design is something like: </p><small><ul class="list-group" style=" padding-left: 50px; padding-top: 0px; width: 215px; "><li class="list-group-item">1, Dr. Jones</li><li class="list-group-item">2, Dr. Parker </li><li class="list-group-item">3, Dr. Smith</li><li class="list-group-item">99, Other</li></ul></small><p>Now you can add additional members to the list during the project without needing to recode. And, when you analyze your data the other value is easily identified.</p>',
             'YES_NO_TITLE'=>'Inconsistencies in coding for yes/no questions.',
@@ -112,11 +126,10 @@ function lang($phrase){
             'CLOSE' => 'Close',
             'NOTICE' => 'Notice',
             'INFO_WHAT_NETX' => 'What happens Next?',
-            'INFO_WHAT_NETX_BODY' => '  Your project will be reviewed by SCCI before being moved into Production. This process typically takes 1-2 business days.  Can\'t wait? Click <a href="https://medwiki.stanford.edu/x/SRMzAw"><u>HERE</u></a>.',
+            'INFO_WHAT_NETX_BODY' => $INFO_WHAT_NETX_BODY,
             'INFO_WHAT_NETX_BODY_2' => ' If, on the next page you check \'Delete ALL Data\', any data entered before being approved for Production will be deleted. Do not enter production data while a request is pending unless you uncheck this box and follow the instructions in the next item.',
             'INFO_CITATION' => 'Citation Information',
-            'INFO_CITATION_BODY' => ' REDCap at Stanford is supported by Research IT. All research resulting from the use of REDCap must cite the grants that make this service available - details, including biolerplate language, are located
-                <a href="https://medwiki.stanford.edu/x/AAJPB"><u>HERE</u></a>.',
+            'INFO_CITATION_BODY' => $INFO_CITATION_BODY,
             'INFO_STATISTICIAN_REVIEW' => 'Statistician Review',
             'INFO_STATISTICIAN_REVIEW_BODY' => 'It is also highly recommended that you review your project\'s design with a statistician prior to entering production mode to ensure your data capture is configured properly.',
 
@@ -132,14 +145,14 @@ function lang($phrase){
             'TITLE' => 'Move to Production Check List',
             'GO_PROD' => 'Review and Move Project to production',
             'STARTING' => 'Collecting Meta Data',
-            'MAIN_TEXT' => 'If the thought of losing the data you have entered into your REDCap project sounds painful, you should be in production mode. Production mode helps protect your data from accidental mistakes. This plugin will allow you to verify if your project is ready to move to production mode or if you first need to fix something.  <a href="https://medwiki.stanford.edu/x/SRMzAw" > <u>When do I move to Production Mode?</u></a>',
+            'MAIN_TEXT' => $MAIN_TEXT,
 
-              'SETTINGS_TITLE'=>'Go to Prod Setup',
-              'SETTINGS_MAIN_TEXT'=>'Use this page activate/deactivate rules and change the default options for each rule.',
-              'SETTINGS_RULE'=>' Rule/Checklist',
-              'SETTINGS_OPTIONS'=>'Options',
-              'SETTINGS_ALERT_LEVEL'=>'Alert Level',
-              'SETTINGS_ACTIVE'=>'Active',
+            'SETTINGS_TITLE'=>'Go to Prod Setup',
+            'SETTINGS_MAIN_TEXT'=>'Use this page activate/deactivate rules and change the default options for each rule.',
+            'SETTINGS_RULE'=>' Rule/Checklist',
+            'SETTINGS_OPTIONS'=>'Options',
+            'SETTINGS_ALERT_LEVEL'=>'Alert Level',
+            'SETTINGS_ACTIVE'=>'Active',
 
             'RESULTS_TABLE_HEADER1'=>'Where',
             'RESULTS_TABLE_HEADER2'=>'Possible issue',
@@ -150,12 +163,21 @@ function lang($phrase){
             'INSTRUMENT'=>'Instrument:',
             'VARIABLE_NAME'=>'Variable Name:',
             'LABEL'=>'Label:'
-
-
         );
-
-        return $lang[$phrase];
     }
+
+    public function lookup($phrase) {
+        return self::$langArray[$phrase];
+    }
+}
+
+
+//TODO: the names of the columns in the view files and the close button are hard coded.. create lang variables them.
+function lang($phrase){
+    $message = new message();
+
+    return $message::lookup($phrase);
+}
 
 
 
