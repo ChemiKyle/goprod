@@ -175,13 +175,13 @@ if($status == 0 or USERID == 'alvaro'){ //USERID == 'alvaro1' and
     <hr>
     <ul class="list-group col-md-6 col-sm-6 col-xs-12">
         <li class="list-group-item">
-            <h4 class="list-group-item-heading"><?php echo lang('INFO_WHAT_NETX');?></h4>
-            <p class="list-group-item-text"> <?php echo lang('INFO_WHAT_NETX_BODY');?></p>
+            <h4 class="list-group-item-heading"><?php echo lang('INFO_WHAT_NEXT');?></h4>
+            <p class="list-group-item-text"> <?php echo lang('INFO_WHAT_NEXT_BODY');?></p>
             <br>
         </li>
         <br>
         <li class="list-group-item">
-            <p class="list-group-item-text"><?php echo lang('INFO_WHAT_NETX_BODY_2');?></p>
+            <p class="list-group-item-text"><?php echo lang('INFO_WHAT_NEXT_BODY_2');?></p>
         </li>
     </ul>
     <ul class="list-group col-md-6 col-sm-6 col-xs-12">

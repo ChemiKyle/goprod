@@ -20,8 +20,8 @@ class message extends GoProd {
 
     public function __construct() {
         // Check for user set lang variables, default to Stanford values
-        if (!$INFO_WHAT_NETX_BODY = $this->getSystemSetting('info-what-netx-body')) {
-            $INFO_WHAT_NETX_BODY = '  Your project will be reviewed by SCCI before being moved into Production. This process typically takes 1-2 business days.  Can\'t wait? Click <a href="https://medwiki.stanford.edu/x/SRMzAw"><u>HERE</u></a>.';
+        if (!$INFO_WHAT_NEXT_BODY = $this->getSystemSetting('info-what-next-body')) {
+            $INFO_WHAT_NEXT_BODY = '  Your project will be reviewed by SCCI before being moved into Production. This process typically takes 1-2 business days.  Can\'t wait? Click <a href="https://medwiki.stanford.edu/x/SRMzAw"><u>HERE</u></a>.';
         }
         if (!$INFO_CITATION_BODY = $this->getSystemSetting('info-citation-body')) {
             $INFO_CITATION_BODY = ' REDCap at Stanford is supported by Research IT. All research resulting from the use of REDCap must cite the grants that make this service available - details, including biolerplate language, are located <a href="https://medwiki.stanford.edu/x/AAJPB"><u>HERE</u></a>.';
@@ -125,9 +125,9 @@ class message extends GoProd {
             'NO' => 'No',
             'CLOSE' => 'Close',
             'NOTICE' => 'Notice',
-            'INFO_WHAT_NETX' => 'What happens Next?',
-            'INFO_WHAT_NETX_BODY' => $INFO_WHAT_NETX_BODY,
-            'INFO_WHAT_NETX_BODY_2' => ' If, on the next page you check \'Delete ALL Data\', any data entered before being approved for Production will be deleted. Do not enter production data while a request is pending unless you uncheck this box and follow the instructions in the next item.',
+            'INFO_WHAT_NEXT' => 'What happens Next?',
+            'INFO_WHAT_NEXT_BODY' => $INFO_WHAT_NEXT_BODY,
+            'INFO_WHAT_NEXT_BODY_2' => ' If, on the next page you check \'Delete ALL Data\', any data entered before being approved for Production will be deleted. Do not enter production data while a request is pending unless you uncheck this box and follow the instructions in the next item.',
             'INFO_CITATION' => 'Citation Information',
             'INFO_CITATION_BODY' => $INFO_CITATION_BODY,
             'INFO_STATISTICIAN_REVIEW' => 'Statistician Review',
